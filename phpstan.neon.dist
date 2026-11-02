@@ -7,3 +7,7 @@ parameters:
         - tests
     # Plan B adds the Unraid plugin pages (PHP with the .page extension);
     # add `page` to fileExtensions and `plugin` to paths when that lands.
+    # Analyze against the runtime floor (composer.json "php": ">=8.1"), not the
+    # CI interpreter. CI runs PHP 8.4 only because dev-only PHPUnit 13 needs it;
+    # this keeps 8.2+-only syntax and APIs out of shipped code.
+    phpVersion: 80100
